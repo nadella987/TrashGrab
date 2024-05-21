@@ -6,7 +6,7 @@
 <div class="p-4">
 <div class="mb-4 ">
         <div class="d-flex justify-content-between">
-        <h2 class="font-weight-bold">List Jadwal Penjumputan</h2>
+        <h2 class="font-weight-bold">List Jadwal Penjemputan</h2>
         <a  href="{{route('jadwalPickUp.create')}}" class="btn btn-primary">Tambah Pick Up</a>
     </div>
     </div>
@@ -18,6 +18,7 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Kode jadwal</th>
+                    <th scope="col">Tanggal jemput</th>
                     <th scope="col">Lokasi</th>
                     <th scope="col">Aksi</th>
                  </tr>
@@ -32,6 +33,7 @@
                     <tr>
                     <td>{{$item->id}}</td>
                     <td>{{$item->kode_jadwal}}</td>
+                    <td>{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}</td>
                     <td>{{$item->Area->lokasi}}</td>
                     <td > 
                         <a  href="{{ route('jadwalPickUp.show', $item->id)}}" class="mr-3"><i class="far fa-eye"></i></a>

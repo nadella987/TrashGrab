@@ -32,7 +32,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: blue">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #88B44E">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/beranda-m">
@@ -40,7 +40,7 @@
                     <img src="img/logo.png" alt="icon" style="height: 20px; width: 40px">
                 </div>
                 <div class="sidebar-brand-text mx-3">
-                Trash Grab
+                    Trash Grab
                 </div>
             </a>
 
@@ -59,13 +59,13 @@
 
             <!-- User -->
             @if(auth()->user()->role == 'admin')
-            <li class="nav-item {{ Request::is('user*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{route('user.index')}}">
-                    <i class="fa-solid fa-users"></i>
-                    <span>User</span>
-                </a>
+                <li class="nav-item {{ Request::is('user*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{route('user.index')}}">
+                        <i class="fa-solid fa-users"></i>
+                        <span>User</span>
+                    </a>
 
-            </li>
+                </li>
             @endif
 
             <!-- Divider -->
@@ -73,36 +73,36 @@
 
             <!-- Driver  -->
             @if(auth()->user()->role == 'member' || auth()->user()->role == 'admin')
-            <li class="nav-item {{ Request::is('driver*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{route('driver.index')}}">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Driver</span></a>
-            </li>
+                <li class="nav-item {{ Request::is('driver*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{route('driver.index')}}">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Driver</span></a>
+                </li>
             @endif
-    
 
-             <!-- Divider -->
+
+            <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Katalog Sampah -->
             @if(auth()->user()->role == 'member' || auth()->user()->role == 'admin')
-            <li class="nav-item {{ Request::is('katalogSampah*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{route('katalogSampah.index')}}">
-                <i class="fa-solid fa-message"></i>
-                    <span>Katalog Sampah</span></a>
-            </li>
+                <li class="nav-item {{ Request::is('katalogSampah*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{route('katalogSampah.index')}}">
+                        <i class="fa-solid fa-message"></i>
+                        <span>Katalog Sampah</span></a>
+                </li>
             @endif
-      
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
             <!-- Area -->
             @if(auth()->user()->role == 'member' || auth()->user()->role == 'admin')
-            <li class="nav-item {{ Request::is('area*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{route('area.index')}}">
-                    <i class="fa-solid fa-map"></i>
-                    <span>Area</span></a>
-            </li>
+                <li class="nav-item {{ Request::is('area*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{route('area.index')}}">
+                        <i class="fa-solid fa-map"></i>
+                        <span>Area</span></a>
+                </li>
             @endif
 
 
@@ -111,27 +111,27 @@
 
             <!-- Jadwal Penjemputan -->
             @if(auth()->user()->role == 'member' || auth()->user()->role == 'admin')
-            <li class="nav-item {{ Request::is('jadwalPickUp*') ? 'active' : '' }}">
-                <a class="nav-link"  href="{{route('jadwalPickUp.index')}}">
-                    <i class="fa-solid fa-calendar"></i>
-                    <span>Jadwal Penjemputan</span></a>
-            </li>
+                <li class="nav-item {{ Request::is('jadwalPickUp*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{route('jadwalPickUp.index')}}">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span>Jadwal Penjemputan</span></a>
+                </li>
             @endif
-        
 
-               <!-- Divider -->
-               <hr class="sidebar-divider my-0">
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
             <!-- Permintaan Penjemputan -->
             @if(auth()->user()->role == 'member' || auth()->user()->role == 'admin')
-            <li class="nav-item {{ Request::is('transaksi*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('transaksi.index') }}">
-                    <i class="fa-solid fa-shopping-bag"></i>
-                    <span>Permintaan Penjemputan</span>
-                </a>
-            </li>
+                <li class="nav-item {{ Request::is('transaksi*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('transaksi.index') }}">
+                        <i class="fa-solid fa-shopping-bag"></i>
+                        <span>Permintaan Penjemputan</span>
+                    </a>
+                </li>
             @endif
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -161,28 +161,6 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                                    
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell fa-fw"></i>
-                            <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter" id="notificationCounter">4+</span>
-                        </a>
-                        <!-- Dropdown - Alerts -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow  animated--grow-in"
-                        aria-labelledby="alertsDropdown" >
-                        <h6 class="dropdown-header">
-                            Notifikasi
-                        </h6>
-                        <div id="notificationsDropdown" style="max-height: 200px; overflow-y: auto;">
-                        </div>
-                      
-                            <!-- Notifikasi akan ditambahkan di sini melalui JavaScript -->
-                        </div>
-                    </li>
-
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -190,24 +168,25 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{route('user.showProfile', auth()->user()->id)}}" >
+                                <a class="dropdown-item" href="{{route('user.showProfile', auth()->user()->id)}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button class="dropdown-item" type="submit">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </button>
-                            </form>
+                                    @csrf
+                                    <button class="dropdown-item" type="submit">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </button>
+                                </form>
                             </div>
                         </li>
 
