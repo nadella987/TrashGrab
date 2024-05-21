@@ -19,6 +19,10 @@
                         <div id="produk-container">
                         </div>
                        
+                        <div class="row justify-content-end"> 
+                            <a class="btn btn-danger ml-2" href="{{ route('transaksi.index') }}">Batal</a>
+                            <button type="submit" class="btn btn-primary ml-2">Tambah</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -30,13 +34,15 @@
     document.addEventListener("DOMContentLoaded", function () {
         const addButton = document.getElementById("add-product");
         const container = document.getElementById("produk-container");
+        let productCount = 0;
 
         addButton.addEventListener("click", function () {
+            productCount++;
             const row = document.createElement("div");
             row.classList.add("produk-row");
             row.innerHTML = `
                 <div class="form-group mt-4">
-                    <label for="id_sampah">Sampah:</label>
+                    <label for="id_sampah_${productCount}">Sampah:</label>
                     <select class="id_sampah form-control form-control-user" name="id_sampah[]" onchange="calculateTotal(this)">
                         <option value="" disabled selected>Pilih Sampah</option>
                         @foreach($sampah as $item)
@@ -45,17 +51,13 @@
                     </select>
                 </div>
                 <div class="form-group mt-4">
-                    <label for="qty">QTY :</label>
+                    <label for="qty_${productCount}">QTY :</label>
                     <input type="number" class="qty form-control form-control-user" name="qty[]" onchange="calculateTotal(this)" placeholder="Tambahkan QTY">
                 </div>
                 <div class="form-group mt-4">
-                    <label for="total">Total :</label>
+                    <label for="total_${productCount}">Total :</label>
                     <input type="number" class="total form-control form-control-user" name="total[]" readonly>
                 </div>
-                <div class="row justify-content-end"> 
-                            <a class="btn btn-danger ml-2" href="{{ route('transaksi.index') }}">Batal</a>
-                            <button type="submit" class="btn btn-primary ml-2">Tambah</button>
-                        </div>
             `;
             container.appendChild(row);
         });
@@ -70,7 +72,6 @@
         const total = price * qty;
         totalInput.value = total;
     }
-    
 </script>
 
 @endauth

@@ -40,7 +40,6 @@
 			<div class="select-group">
                     <select name="role" id="role" required>
                         <option value="" disabled selected>Pilih Role</option>
-                        <option value="admin">Admin </option>
                         <option value="member">Member</option>  
                     </select>
                 </div>

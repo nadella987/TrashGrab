@@ -61,9 +61,9 @@
                     <label for="status">Status:</label>
                     <select id="status" name="status"  class="form-control form-control-user @error('status')is-invalid @enderror">
                         <option value="" disabled selected>Pilih Status</option>
-                        <option value="on_going" {{ $transaksi->status == 'on_going' ? 'selected' : '' }}>On going</option>   
                         <option value="waiting"{{ $transaksi->status == 'waiting' ? 'selected' : '' }}>>Waiting </option>
-                        <option value="verified"{{ $transaksi->status == 'verified' ? 'selected' : '' }}>>Verified</option>  
+                        <option value="verified"{{ $transaksi->status == 'verified' ? 'selected' : '' }}>>Verified</option> 
+                        <option value="on_going" {{ $transaksi->status == 'on_going' ? 'selected' : '' }}>On going</option>    
                         <option value="finished"{{ $transaksi->status == 'finished' ? 'selected' : '' }}>>Finished</option>  
                     </select>
                     @error('status')

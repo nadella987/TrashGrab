@@ -13,7 +13,7 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        $transaksi = Transaksi::with('User')->get();
+        $transaksi = Transaksi::with('User', 'JadwalPickup')->get();
         return view('transaksi.index',compact('transaksi'));
     }
 
