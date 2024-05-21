@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Validator;
 class DetailTransaksiController extends Controller
 {
   
-    public function create()
+    public function create($transaksi_id)
     {
-        $transaksi = Transaksi::latest()->first();
+        $transaksi = Transaksi::find($transaksi_id);
         $sampah = KatalogSampah::all();
         return view('detailTransaksi.create', compact( 'sampah', 'transaksi'));
     }

@@ -33,7 +33,7 @@
                 @else
                 @foreach($driver as $item)
                     <tr>
-                    <td>{{$item->id}}</td>
+                    {{ $loop->iteration }}
                     <td>{{$item->nama_pegawai}}</td>
                     <td>{{$item->email}}</td>
                     <td>@if ($item->jenis_kelamin == 'laki_laki')

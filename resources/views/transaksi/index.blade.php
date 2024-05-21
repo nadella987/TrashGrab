@@ -35,24 +35,26 @@
                 @else
                 @foreach($transaksi as $item)
                     <tr>
-                    <td>{{$item->id}}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ \Carbon\Carbon::parse($item->JadwalPickup->tanggal)->translatedFormat('d F Y') }}</td>
                     <td>{{ \Carbon\Carbon::parse($item->tanggal_transaksi)->translatedFormat('d F Y') }}</td>
                     <td>{{$item->User->name}}</td>
                     <td>{{ucfirst(str_replace('_', ' ', $item->status)) }}</td>
-                    @if(auth()->user()->role == 'admin')
+    
                     <td>
+          
                         <a  href="{{ route('transaksi.show', $item->id)}}" class="mr-3"><i class="far fa-eye"></i></a>
-                        <a  href="{{ route('transaksi.edit', $item->id)}}" class="mr-1" ><i class="far fa-edit"></i></a>
-                        <form action="{{ route('transaksi.destroy', $item->id)}}" method="POST" style="display: inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-link text-danger" onclick="return confirm('Anda yakin ingin menghapus riwayat permintaan ini?')">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
+                        @if(auth()->user()->role == 'admin')
+                                <a href="{{ route('transaksi.edit', $item->id) }}" class="mr-1"><i class="far fa-edit"></i></a>
+                                <form action="{{ route('transaksi.destroy', $item->id) }}" method="POST" style="display: inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-link text-danger" onclick="return confirm('Anda yakin ingin menghapus riwayat permintaan ini?')">
+                                            <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        @endif
                     </td>
-                    @endif 
                     </tr>
                     @endforeach
                     @endif

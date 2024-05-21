@@ -118,7 +118,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::controller(DetailTransaksiController::class)->group(function () {
-        Route::get('tambah-sampah', 'create')->name('sampah.create');
+        Route::get('tambah-sampah-{transaksi_id}', 'create')->name('sampah.create');
         Route::post('tambah-sampah', 'store')->name('sampah.store');
         Route::get('edit-sampah-{id}', 'edit')->name('sampah.edit');
         Route::put('edit-sampah-{id}', 'update')->name('sampah.update');

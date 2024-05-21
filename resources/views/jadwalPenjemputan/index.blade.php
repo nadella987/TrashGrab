@@ -7,7 +7,9 @@
 <div class="mb-4 ">
         <div class="d-flex justify-content-between">
         <h2 class="font-weight-bold">List Jadwal Penjemputan</h2>
+        @if(auth()->user()->role == 'admin')
         <a  href="{{route('jadwalPickUp.create')}}" class="btn btn-primary">Tambah Pick Up</a>
+        @endif  
     </div>
     </div>
     <div class="card rounded">
@@ -20,7 +22,9 @@
                     <th scope="col">Kode jadwal</th>
                     <th scope="col">Tanggal jemput</th>
                     <th scope="col">Lokasi</th>
+                    @if(auth()->user()->role == 'admin')
                     <th scope="col">Aksi</th>
+                     @endif
                  </tr>
                 </thead>
                 <tbody>
@@ -31,10 +35,11 @@
                 @else
                 @foreach($jadwalPenjemputan as $item)
                     <tr>
-                    <td>{{$item->id}}</td>
+                    {{ $loop->iteration }}
                     <td>{{$item->kode_jadwal}}</td>
                     <td>{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}</td>
                     <td>{{$item->Area->lokasi}}</td>
+                    @if(auth()->user()->role == 'admin')
                     <td > 
                         <a  href="{{ route('jadwalPickUp.show', $item->id)}}" class="mr-3"><i class="far fa-eye"></i></a>
                         <a  href="{{ route('jadwalPickUp.edit', $item->id)}}" class="mr-1" ><i class="far fa-edit"></i></a>
@@ -46,6 +51,8 @@
                             </button>
                         </form>
                     </td>
+                     @endif 
+               
                     </tr>
                     @endforeach
                     @endif

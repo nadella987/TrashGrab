@@ -33,7 +33,7 @@
                 @else
                 @foreach($katalogSampah as $item)
                     <tr>
-                    <td>{{$item->id}}</td>
+                    {{ $loop->iteration }}
                     <td>{{$item->jenis_sampah}}</td>
                     <td>
                                 @if($item->foto)

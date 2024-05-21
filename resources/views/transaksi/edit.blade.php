@@ -65,6 +65,7 @@
                         <option value="verified"{{ $transaksi->status == 'verified' ? 'selected' : '' }}>>Verified</option> 
                         <option value="on_going" {{ $transaksi->status == 'on_going' ? 'selected' : '' }}>On going</option>    
                         <option value="finished"{{ $transaksi->status == 'finished' ? 'selected' : '' }}>>Finished</option>  
+                        <option value="dibatalkan" {{ $transaksi->status == 'dibatalkan' ? 'selected' : '' }}>Dibatalkan</option>
                     </select>
                     @error('status')
                     <span class="invalid-feedback"> {{$message}}</span>

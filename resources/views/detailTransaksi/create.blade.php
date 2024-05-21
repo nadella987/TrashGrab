@@ -12,10 +12,9 @@
                         <h2 class="card-title text-dark mb-0"><strong>Tambah Sampah</strong></h2>
                         <button type="button" class="btn btn-success" id="add-product">Tambah Sampah</button>
                     </div>
-                    <form action="{{ route('sampah.store') }}" method="POST">
+                    <form action="{{ route('sampah.store', $transaksi->id) }}" method="POST">
                         @csrf
                         <input type="hidden" name="id_transaksi" value="{{ $transaksi->id }}">
-    
                         <div id="produk-container">
                         </div>
                        

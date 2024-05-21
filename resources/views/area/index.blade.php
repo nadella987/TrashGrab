@@ -33,7 +33,7 @@
                 @else
                 @foreach($area as $item)
                     <tr>
-                    <td>{{$item->id}}</td>
+                    {{ $loop->iteration }}
                     <td>{{$item->kode_area}}</td>
                     <td>{{$item->lokasi}}</td>
                     <td > 

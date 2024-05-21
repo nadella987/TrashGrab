@@ -13,9 +13,15 @@ class TransaksiController extends Controller
 {
     public function index()
     {
-        $transaksi = Transaksi::with('User', 'JadwalPickup')->get();
-        return view('transaksi.index',compact('transaksi'));
+        if (auth()->user()->role == 'admin') {
+            $transaksi = Transaksi::with('User', 'JadwalPickup')->get();
+        } else {
+            $transaksi = Transaksi::with('User', 'JadwalPickup')->where('id_user', auth()->id())->get();
+        }
+    
+        return view('transaksi.index', compact('transaksi'));
     }
+    
 
     public function create()
     {
@@ -44,8 +50,6 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::findOrFail($id)->load('JadwalPickup', 'User');
         $detailTransaksi = DetailTransaksi::where('id_transaksi', $id)->with('Sampah')->get();
-        
-
         return view('transaksi.detail', compact('transaksi', 'detailTransaksi'));
 
     }
